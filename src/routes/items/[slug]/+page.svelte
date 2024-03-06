@@ -1,7 +1,7 @@
 <!-- src/routes/[slug]/+page.svelte -->
 <script lang="js">
     /**
-     * @typedef {Object} Team
+     * @typedef {Object} Item
      * @property {string} image - The name of the team.
      * @property {string} name - The name of the team.
      * @property {string} price - The city of the team.
@@ -15,7 +15,7 @@
     /** @type {Data} */
     export let data;
   
-    const { image, name, price } = data.team;
+    const { image, name, price } = data.item;
   </script>
   
 

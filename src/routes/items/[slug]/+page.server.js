@@ -1,23 +1,36 @@
 // src/routes/[slug]/+page.server.js
 import { error } from "@sveltejs/kit";
 import { slugify } from "$lib/utils.js";
-import { items } from "$lib/data2";
+import { PUBLIC_SUPABASE_TABLE } from "$env/static/public";
+import { supabase } from "$lib/server/supabase_client";
 
 /**
- * Load a team based on the provided parameters.
- *
- * @param {Object} options - The options object.
- * @param {Object} options.params - The parameters object.
- * @param {string} options.params.slug - The slug of the team to load.
- * @returns {Object} An object containing the team data.
- * @throws Will throw an error if the team is not found.
+ * Loads products from the 'product_info' table in Supabase.
+ * @async
+ * @returns {Promise<{ items: item[] }>} The product info.
  */
-export function load({ params }) {
-  const team = items.find((team) => slugify(team.image) === params.slug);
 
-  if (!team) throw error(404);
+export async function load() {
+  const { data, error } = await supabase
+  .from(PUBLIC_SUPABASE_TABLE)
+  .select("*")
+  .eq('id', )
+  .single(); // Select more specific data
+
+  console.log(data);
 
   return {
-    team
+    items: data ?? []
   };
 }
+
+
+// export function load({ params }) {
+//   const item = items.find((ite ) => slugify(item.image) === params.slug);
+
+//   if (!item) throw error(404);
+
+//   return {
+//     item
+//   };
+// }
