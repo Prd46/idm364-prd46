@@ -7,13 +7,31 @@
 	import Filter from './Filter.svelte';
 	export let titleV = "Home";
 	// const pageTitle = document.title;
+	export let data;
+
+
 </script>
 
 <svelte:head>
 	<title>{titleV}</title>
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
+
     <main>
+		{#if data.items}
+		{#each data.items as item}
+		  <p>{item.name}, {item.price}</p>
+		{/each}
+		{/if}
+
+
+		<section>
+			{#if data.items}
+				{#each data.items as item}
+					<p>{item.name}</p>
+				{/each}
+			{/if}
+		</section>
 		<section>
 			<div class="images">
 				<!-- <img class="paintImg" src='/images/paint.png' alt="Paintsplatter" /> -->

@@ -1,22 +1,26 @@
+<script>
+    import { setContext } from "svelte";
+</script>
+
 <section>
-    <div>
+    <button on:click={() => setContext('categorySelection', "7-String")}>
         <h3>7-String</h3>
-    </div>
-    <div>
+    </button>
+    <button on:click={() => setContext('categorySelection', "8-String")}>
         <h3>8-String</h3>
-    </div>
-    <div>
+    </button>
+    <button on:click={() => setContext('categorySelection', "Amp")}>
         <h3>Amp</h3>
-    </div>
-    <div>
+    </button>
+    <button on:click={() => setContext('categorySelection', "Pre-Amp")}>
         <h3>Pre-Amp</h3>
-    </div>
-    <div>
+    </button>
+    <button on:click={() => setContext('categorySelection', "Cable")}>
         <h3>Cable</h3>
-    </div>
-    <div>
+    </button>
+    <button on:click={() => setContext('categorySelection', "Strings")}>
         <h3>Strings</h3>
-    </div>
+    </button>
 </section>
 
 
@@ -27,7 +31,7 @@
         flex-wrap: wrap;
         justify-content: center
     }
-    div{
+    button{
         padding: 0 .25rem;
         border-radius: 5rem;
         width: 8rem;

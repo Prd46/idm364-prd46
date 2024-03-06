@@ -18,6 +18,7 @@
     const { image, name, price } = data.team;
   </script>
   
+
   <h1>{name} Team Data</h1>
   <dl>
     <dt>Image</dt>

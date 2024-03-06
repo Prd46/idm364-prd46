@@ -3,6 +3,10 @@
 	import './styles.css';
 	import Footer from './Footer.svelte';
 	import { fade } from 'svelte/transition';
+
+// ⚠️ Store these values in a .env file
+// Set the values up in your hosting dashboard for production deployments
+
 </script>
 
 <div class="app">
@@ -11,7 +15,7 @@
 	<main>
 		<slot />
 	</main>
-	<Footer />
+	<!-- <Footer /> -->
 </div>
 
 <style>
@@ -27,7 +31,6 @@
 		flex-direction: column;
 		padding: 1rem;
 		width: 100%;
-		max-width: 80rem;
 		margin: 0 auto;
 		box-sizing: border-box;
 	}

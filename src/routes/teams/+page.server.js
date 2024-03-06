@@ -15,6 +15,7 @@ export function load() { //Load function, specific to svelte, pulls the data
       image: team.image,
       name: team.name,
       price: team.price,
+      category: team.category,
       slug: slugify(team.image)
     }))
   };
