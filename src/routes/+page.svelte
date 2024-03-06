@@ -8,8 +8,10 @@
 	export let titleV = "Home";
 	// const pageTitle = document.title;
 	export let data;
-
-
+let categories = ["7-String", "8-String", "Amp", "Pre-Amp", "Cable", "Strings"];
+$:{
+	console.log(data)
+}
 </script>
 
 <svelte:head>
@@ -19,19 +21,28 @@
 
     <main>
 		{#if data.items}
-		{#each data.items as item}
-		  <p>{item.name}, {item.price}</p>
-		{/each}
-		{/if}
-
-
-		<section>
-			{#if data.items}
-				{#each data.items as item}
-					<p>{item.name}</p>
-				{/each}
+		{#each categories as itemCategory}
+			<h2>{itemCategory}</h2>
+			<section>
+				
+					{#each data.items as item}
+						{#if item.category == itemCategory}
+						<a href="/itemPage">
+							<div class="card">
+								<div class="image"><img src="/images/{item.image}" alt="Placeholder Image"></div>
+								<div class="caption">
+									<h3>{item.name}</h3>
+									<p>{item.price}</p>
+								</div>
+							</div>
+						</a>
+						{/if}
+						{/each}
+			</section>
+			{/each}
+			{:else}
+				<p>No items found!</p>
 			{/if}
-		</section>
 		<section>
 			<div class="images">
 				<!-- <img class="paintImg" src='/images/paint.png' alt="Paintsplatter" /> -->
@@ -52,7 +63,7 @@
 		<!-- <div class="tempReel">
 			<Card />
 		</div> -->
-		<Carousel />
+		<!-- <Carousel /> -->
     </main>
 
 
@@ -64,6 +75,7 @@
 	}
 	section{
 		display: flex;
+		overflow-x: scroll;
 	}
 	.images{
 		display: flex;
@@ -76,4 +88,24 @@
     width: 100%;
     overflow: hidden;
 	}
+
+	.card {
+    width: 30vw;
+    height: 20rem;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin: 0 10px;
+    background-color: #f0f0f0;
+    display: flex;
+    color: black;
+}
+img{
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.caption {
+    width: 50%;
+}
 </style>
