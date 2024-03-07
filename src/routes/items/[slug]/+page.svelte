@@ -9,20 +9,14 @@
   
     /**
      * @typedef {Object} Data
-     * @property {Team} team - The team data.
+     * @property {Item} item - The team data.
      */
   
     /** @type {Data} */
     export let data;
-  
-    const { image, name, price } = data.item;
+    console.log(data); //DATA IS GETTING HERE, but cannot get the information from it.
+
   </script>
   
 
-  <h1>{name} Team Data</h1>
-  <dl>
-    <dt>Image</dt>
-    <dd>{image}</dd>
-    <dt>Price</dt>
-    <dd>{price}</dd>
-  </dl>
+  <h1>{data} Team Data</h1>

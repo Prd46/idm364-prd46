@@ -25,7 +25,7 @@
   <Filter />
 <div class="cardContainer">
     <!-- CYCLE THROUGH EACH TAT -->
-    {#each data.items as { image, name, price}} 
+    {#each data.items as { id, image, name, price}} 
             <a href="/items/{slugify(name)}">
                 <div class="card">
                     <div class="image"><img src="/images/{image}" alt="Placeholder Image"></div>

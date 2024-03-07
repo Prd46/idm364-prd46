@@ -1,6 +1,5 @@
 // src/routes/[slug]/+page.server.js
 import { error } from "@sveltejs/kit";
-import { slugify } from "$lib/utils.js";
 import { PUBLIC_SUPABASE_TABLE } from "$env/static/public";
 import { supabase } from "$lib/server/supabase_client";
 
@@ -14,23 +13,13 @@ export async function load() {
   const { data, error } = await supabase
   .from(PUBLIC_SUPABASE_TABLE)
   .select("*")
-  .eq('id', )
+  .eq('id', 1)
   .single(); // Select more specific data
-
-  console.log(data);
+  // console.log(data);
+  
+  if (!data) throw error(404);
 
   return {
-    items: data ?? []
+    data
   };
 }
-
-
-// export function load({ params }) {
-//   const item = items.find((ite ) => slugify(item.image) === params.slug);
-
-//   if (!item) throw error(404);
-
-//   return {
-//     item
-//   };
-// }

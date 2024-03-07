@@ -11,9 +11,9 @@
 
 
 let categories = ["7-String", "8-String", "Amp", "Pre-Amp", "Cable", "Strings"];
-$:{
-	console.log(data)
-}
+// $:{
+// 	console.log(data)
+// }
 
 // const paintAreas = document.querySelectorAll(".paintSplash");
 // paintAreas.forEach((paintArea) =>{
@@ -53,7 +53,7 @@ $:{
 				<section>
 					{#each data.items as item}
 						{#if item.category == itemCategory}
-						<a href="/itemPage">
+						<a href="/items/{item.id}">
 							<div class="card">
 								<div class="image"><img src="/images/{item.image}" alt="Placeholder Image"></div>
 								<div class="caption">
