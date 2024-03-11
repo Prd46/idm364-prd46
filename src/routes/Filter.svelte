@@ -4,22 +4,22 @@
 
 <section>
     <button on:click={() => setContext('categorySelection', "7-String")}>
-        <h3>7-String</h3>
+        7-String
     </button>
     <button on:click={() => setContext('categorySelection', "8-String")}>
-        <h3>8-String</h3>
+        8-String
     </button>
     <button on:click={() => setContext('categorySelection', "Amp")}>
-        <h3>Amp</h3>
+        Amp
     </button>
     <button on:click={() => setContext('categorySelection', "Pre-Amp")}>
-        <h3>Pre-Amp</h3>
+        Pre-Amp
     </button>
     <button on:click={() => setContext('categorySelection', "Cable")}>
-        <h3>Cable</h3>
+        Cable
     </button>
     <button on:click={() => setContext('categorySelection', "Strings")}>
-        <h3>Strings</h3>
+        Strings
     </button>
 </section>
 
@@ -37,9 +37,9 @@
         width: 8rem;
         background-color: aliceblue;
         margin: .5rem;
-    }
-    h3{
         text-align: center;
+        padding: 1rem;
         font-size: 1.25rem;
+        font-family: var(--ptext);
     }
 </style>

@@ -14,9 +14,44 @@
   
     /** @type {Data} */
     export let data;
-    console.log(data); //DATA IS GETTING HERE, but cannot get the information from it.
+    console.log(data.item); //DATA IS GETTING HERE, but cannot get the information from it.
 
   </script>
-  
+  		{#if data.item}
+      <div>
+        <div class="card">
+          <div class="image"><img src="{data.item.altImageUrl}" alt="Placeholder Image"></div>
+          <div class="caption">
+            <h3 class="itemName">{data.item.name}</h3>
+            <p>${data.item.price}.00</p>
+          </div>
+        </div>
+        <p>{data.item.description}</p>
+      </div>
+      {/if}
 
-  <h1>{data} Team Data</h1>
+      <style>
+
+        .card {
+            width: 50%;
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            margin: 0 10px;
+            background-color: #f0f0f0;
+        }
+        
+        .image {
+            width: 50%;
+        }
+        
+        .image img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        
+        .caption {
+            width: 50%;
+        }
+        
+        </style>

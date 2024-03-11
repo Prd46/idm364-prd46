@@ -45,6 +45,7 @@
 
 html {
   background-color: var(--bg);
+  overscroll-behavior-x: none;
 }
 body {
   border-top: var(--thickBorder);
@@ -52,6 +53,7 @@ body {
   border-bottom: var(--thickBorder);
   border-radius: var(--brsmall);
   margin: 2rem;
+  overscroll-behavior-x: none;
 }
 header {
   border-bottom: var(--thinBorder);
@@ -85,6 +87,8 @@ a {
 }
 img {
   height: 100%;
+  width: 12rem;
+  object-fit: cover;
 }
 button,
 input[type="submit"],

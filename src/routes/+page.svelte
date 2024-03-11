@@ -2,9 +2,9 @@
 	// import Counter from './Counter.svelte';
 	// import welcome from '$lib/images/svelte-welcome.webp';
 	// import welcome_fallback from '$lib/images/svelte-welcome.png';
-	import Carousel from './Carousel.svelte';
-	import Card from './Card.svelte';
-	import Filter from './Filter.svelte';
+	// import Carousel from './Carousel.svelte';
+	// import Card from './Card.svelte';
+	// import Filter from './Filter.svelte';
 	// import { formatPrice } from '$lib/utils';
 	// const pageTitle = document.title;
 	export let data;
@@ -45,19 +45,19 @@ let categories = ["7-String", "8-String", "Amp", "Pre-Amp", "Cable", "Strings"];
 		</div>
 	</div>
 </section>
-<Filter />
+<!-- <Filter /> -->
     <main>
 		{#if data.items}
 		{#each categories as itemCategory}
 			<h2>{itemCategory}<div class="angulate"></div></h2>
-				<section>
+				<section class="carousel">
 					{#each data.items as item}
 						{#if item.category == itemCategory}
 						<a href="/items/{item.id}">
 							<div class="card">
-								<div class="image"><img src="/images/{item.image}" alt="Placeholder Image"></div>
+								<div class="image"><img src="{item.altImageUrl}" alt="Placeholder Image"></div>
 								<div class="caption">
-									<h3>{item.name}</h3>
+									<h3 class="itemName">{item.name}</h3>
 									<p>${item.price}.00</p>
 								</div>
 							</div>
@@ -102,16 +102,16 @@ let categories = ["7-String", "8-String", "Amp", "Pre-Amp", "Cable", "Strings"];
 	.paintSplash{
 		background-color: white;
 		width: 40rem;
+		border-radius: 10px;
 	}
 	.c{
 		text-align: center;
 	}
 	section{
 		display: flex;
-		overflow-x: scroll;
 	}
-	.images{
-		display: flex;
+	.carousel{
+		overflow-x: scroll;
 	}
 	.paintImg{
 		position: relative;
@@ -126,7 +126,7 @@ let categories = ["7-String", "8-String", "Amp", "Pre-Amp", "Cable", "Strings"];
 	}
 
 	.card {
-    width: 30vw;
+    width: 500px;
     height: 20rem;
     padding: 20px;
     box-sizing: border-box;
@@ -142,6 +142,20 @@ img{
 }
 
 .caption {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
     width: 50%;
+	padding: 0 1rem;
+}
+.itemName{
+	height: 10rem;
+	-ms-word-break: break-all;
+  	word-break: break-all;
+	overflow-y: hidden;
+	word-break: break-word;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	hyphens: auto;
 }
 </style>

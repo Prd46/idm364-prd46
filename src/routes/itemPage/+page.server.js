@@ -6,22 +6,23 @@ import { supabase } from "$lib/server/supabase_client";
 /**
  * Loads products from the 'product_info' table in Supabase.
  * @async
- * @param {object} { params } The parameters from the URL.
  * @returns {Promise<{ items: item[] }>} The product info.
  */
 
-export async function load({params}) {
-  const { slug } = params; // Get the slug from the URL
+export async function load() {
+  const pageId = window.location;
+  const searchParams = new URLSearchParams(pageId);
+  console.log(searchParams);
   const { data, error } = await supabase
   .from(PUBLIC_SUPABASE_TABLE)
   .select("*")
-  .eq('id', slug)
+  .eq('id', searchParams)
   .single(); // Select more specific data
   // console.log(data);
   
   if (!data) throw error(404);
 
   return {
-      item: data ?? [],
+    data
   };
 }
