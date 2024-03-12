@@ -13,9 +13,26 @@
      */
   
     /** @type {Data} */
+    import { cart } from '$lib/cart.js';
+    let count = 1;
     export let data;
-    console.log(data.item); //DATA IS GETTING HERE, but cannot get the information from it.
+        
+    function addToCart() {
+      // If the item category 
 
+      cart.update(items => {
+        const addedItem = {
+          name: data.item.name,
+          price: data.item.price,
+          image: data.item.altImageUrl,
+          quantity: count,
+        };
+        return [...items, addedItem];
+      });
+  }
+
+
+    console.log(data.item); //DATA IS GETTING HERE, but cannot get the information from it.
   </script>
   		{#if data.item}
       <div>
@@ -25,8 +42,10 @@
             <h3 class="itemName">{data.item.name}</h3>
             <p>${data.item.price}.00</p>
           </div>
+          <p>{data.item.description}</p>
+          <button on:click={addToCart}> Add to Cart </button>
         </div>
-        <p>{data.item.description}</p>
+        
       </div>
       {/if}
 
