@@ -1,12 +1,12 @@
-import { sveltekit } from "@sveltejs/kit/vite";
-import { defineConfig } from "vite";
+import { sveltekit } from '@sveltejs/kit/vite';
+import { defineConfig } from 'vite';
+import path from 'path';
 
 export default defineConfig({
-  plugins: [sveltekit()],
-
-  resolve: {
-    alias: {
-      $lib: "/src/lib", 
-    },
-  },
+	plugins: [sveltekit()],
+	resolve: {
+		alias: {
+		  $lib: path.join(process.cwd(), '/src/lib'), 
+		},
+	  },
 });
