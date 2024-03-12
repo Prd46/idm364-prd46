@@ -1,7 +1,7 @@
 // src/routes/[slug]/+page.server.js
 import { error } from "@sveltejs/kit";
 import { PUBLIC_SUPABASE_TABLE } from "$env/static/public";
-import { supabase } from "$lib/server/supabase_client";
+import { supabase } from '$lib/server/supabase_client';
 
 /**
  * Loads products from the 'product_info' table in Supabase.
