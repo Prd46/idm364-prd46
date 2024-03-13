@@ -1,5 +1,5 @@
 import { PUBLIC_SUPABASE_TABLE } from "$env/static/public";
-import { supabase } from '$lib/supabase.js';
+import { supabase } from '$lib/server/supabase_client';
 
 import { svelte } from "@sveltejs/vite-plugin-svelte";
 
@@ -19,3 +19,4 @@ export async function GET() {
     });
   }
 }
+
