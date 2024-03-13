@@ -1,6 +1,7 @@
 <script>
 	import { page } from '$app/stores';
 	import {goto} from '$app/navigation'
+    import { cart } from '$lib/cart.js';
     // import Img from '../lib/images/github.svg';
 </script>
 <!-- Make header prop -->
@@ -8,65 +9,22 @@
 <header>
 	<div class="header_buttonBox">
             <button on:click={() => goto('/')}><h3 class="footer_pageLink">Home</h3></button>
-            <button on:click={() => goto('/cart')}><h3 class="footer_pageLink">Cart</h3></button>
-            <button on:click={() => goto('/checkout')}><h3 class="footer_pageLink">Checkout</h3></button>
-            <button on:click={() => goto('/purchases')}><h3 class="footer_pageLink">Purchases</h3></button>
+            <button on:click={() => goto('/cartPage')}><h3 class="footer_pageLink">Cart</h3></button>
+            {#if $cart.length>0}
+                <div class="notifCircle"><h4>{$cart.length}</h4></div>
+            {/if}
 	</div>
 </header>
 
 <style>
-
-    .header_icon{
-        width: var(--smallImg);
-        height: var(--smallImg);
-        padding: var(--smallBuffer);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        filter: opacity(40%);
-        transition: var(--tsn);
-    }
-    .header_iconCaption{
-        filter: opacity(0%);
-        position: absolute;
-        top: 4.7rem;
-        transition: var(--tsn);
-    }
-    .header_icon:hover{
-        filter: opacity(100%);
-        transition: var(--tsn);
-    }
-    
-    .header_icon:hover .header_iconCaption{
-        filter: opacity(100%);
-        top: 5.2rem;
-    }
-    
     .header_buttonBox{
         display: flex;
         width: 100%;
     }
     
-    .header_buttonsRight{
-        display: flex;
-    }
-    
     h3{
                 color: white;
             }
-                footer {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 12px;
-        }
-            .footer_links{
-            display: flex;
-            justify-content: space-evenly;
-            width: 40rem;
-            margin: 0 auto;
-        }
         .footer_pageLink{
             /* background: var(--headerTextColor); */
             font-size: 1.5rem;
@@ -78,6 +36,19 @@
             background: var(--headerTextColor);
             color: var(--bg);
             transition: var(--tsn);
+        }
+        .notifCircle{
+            background-color: red;
+            border-radius: 40px;
+            padding: .5rem;
+            height: 16px;
+            width: 16px;
+            position: relative;
+            right: 1rem;
+            top: .5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     </style>
     
