@@ -14,6 +14,7 @@
   
     /** @type {Data} */
     import { cart } from '$lib/cart.js';
+    import {goto} from '$app/navigation'
     let count = 1;
     export let data;
         
@@ -35,15 +36,20 @@
     console.log(data.item); //DATA IS GETTING HERE, but cannot get the information from it.
   </script>
   		{#if data.item}
-      <div>
+      <div class="cardContainer">
         <div class="card">
+          <button on:click={() => goto('/')}><p class="footer_pageLink">← Back</p></button>
           <div class="image"><img src="{data.item.altImageUrl}" alt="Placeholder Image"></div>
           <div class="caption">
             <h3 class="itemName">{data.item.name}</h3>
             <p>${data.item.price}.00</p>
           </div>
           <p>{data.item.description}</p>
-          <button on:click={addToCart}> Add to Cart </button>
+          <div class="cardButtons">
+            <div class="addBorder">
+              <button class="addButton" on:click={addToCart}><h4>Add to Cart</h4></button>
+            </div>
+          </div>
         </div>
         
       </div>
@@ -58,6 +64,12 @@
             border-radius: 10px;
             margin: 0 10px;
             background-color: #f0f0f0;
+
+        }
+        .cardContainer{
+          width: 100%;
+          display: flex;
+          justify-content: center;
         }
         
         .image {
@@ -71,6 +83,21 @@
         
         .caption {
             width: 50%;
+        }
+        .addButton{
+          padding: .5rem 1rem;
+          background-color: black;
+          border-radius: 16px;
+          border: solid 2px white;
+        }
+        .addBorder{
+          background-color: black;
+          border-radius: 18px;
+          padding: 3px;
+        }
+        .cardButtons{
+          display: flex;
+          justify-content: flex-end;
         }
         
         </style>

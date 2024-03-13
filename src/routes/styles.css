@@ -87,6 +87,9 @@ a {
   font-family: var(--ptext);
   text-decoration: none;
 }
+p{
+  font-family: var(--ptext);
+}
 img {
   height: 100%;
   width: 12rem;

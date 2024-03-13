@@ -1,7 +1,6 @@
 <script>
 	import Header from './Header.svelte';
 	import './styles.css';
-	import Footer from './Footer.svelte';
 	import { fade } from 'svelte/transition';
 
 // ⚠️ Store these values in a .env file

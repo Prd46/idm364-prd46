@@ -3,7 +3,7 @@
 </script>
 
 <section>
-    <button on:click={() => setContext('categorySelection', "7-String")}>
+    <button on:click={() => filter('categorySelection', "7-String")}>
         7-String
     </button>
     <button on:click={() => setContext('categorySelection', "8-String")}>

@@ -2,7 +2,13 @@
     import { cart } from '$lib/cart.js';
     import {goto} from '$app/navigation';
     let totalCost = 0;
+
     $: itemNumbers = $cart.length;
+
+    function clearCart() {
+      // console.log("clearing cart");
+      $cart = [];
+    }
 </script>
 
 <svelte:head>
@@ -19,5 +25,5 @@ Cart
     {:else}
       <p>No items in your cart!</p>
     {/if}
-    <button on:click={() => goto('/checkout')}><h3>Go to Checkout</h3></button>
+    <button on:click={clearCart}><h3>Complete Purchase</h3></button>
   </ul>
