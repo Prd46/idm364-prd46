@@ -2,7 +2,6 @@
 <script lang="js">
     import Filter from "../Filter.svelte" //Gets the filter element
     import {onMount} from 'svelte';
-    import {slugify} from '$lib/utils';
  //Gets the data?
     // import { writable } from "svelte/store";
     // import { setContext } from 'svelte';
@@ -26,7 +25,7 @@
 <div class="cardContainer">
     <!-- CYCLE THROUGH EACH TAT -->
     {#each data.items as { id, image, name, price}} 
-            <a href="/items/{slugify(name)}">
+            <a href="/items/{id}">
                 <div class="card">
                     <div class="image"><img src="/images/{image}" alt="Placeholder Image"></div>
                     <div class="caption">
