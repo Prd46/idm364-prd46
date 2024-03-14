@@ -53,7 +53,7 @@ let categories = ["7-String", "8-String", "Amp", "Pre-Amp", "Cable", "Strings"];
 
 <svelte:head>
 	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+	<meta name="description" content="Stringking" />
 </svelte:head>
 <section>
 	<div class="images">

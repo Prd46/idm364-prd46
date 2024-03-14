@@ -58,7 +58,7 @@
       <style>
 
         .card {
-            width: 50%;
+            width: 80%;
             padding: 20px;
             box-sizing: border-box;
             border-radius: 10px;
