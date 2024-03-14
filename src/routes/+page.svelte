@@ -7,7 +7,7 @@
 	// import Filter from './Filter.svelte';
 	// const pageTitle = document.title;
 	export let data;
-	let items = [];
+	// let items = [];
 
 
 let categories = ["7-String", "8-String", "Amp", "Pre-Amp", "Cable", "Strings"];
@@ -22,30 +22,30 @@ let categories = ["7-String", "8-String", "Amp", "Pre-Amp", "Cable", "Strings"];
 // }
 // });
 
-function filter(category) {
-      filteredProducts = data.filter(product => product.category === category);
-    }
+// function filter(category) {
+//       filteredProducts = data.filter(product => product.category === category);
+//     }
   
-    function updateCategory(name, description) {
-      let dbCategoryName = "";
-      switch (name) {
-        case "The Classics":
-          dbCategoryName = "classic";
-          break;
-        case "Rise & Shine":
-          dbCategoryName = "riseandshine";
-          break;
-        case "H*t T*pic":
-          dbCategoryName = "hottopic";
-          break;
-        default:
-          dbCategoryName = "classic"; // Default category
-      }
+//     function updateCategory(name, description) {
+//       let dbCategoryName = "";
+//       switch (name) {
+//         case "The Classics":
+//           dbCategoryName = "classic";
+//           break;
+//         case "Rise & Shine":
+//           dbCategoryName = "riseandshine";
+//           break;
+//         case "H*t T*pic":
+//           dbCategoryName = "hottopic";
+//           break;
+//         default:
+//           dbCategoryName = "classic"; // Default category
+//       }
   
-      catname = name;
-      catdescription = description;
-      filter(dbCategoryName);
-    }
+//       catname = name;
+//       catdescription = description;
+//       filter(dbCategoryName);
+//     }
 
 
 
@@ -72,7 +72,7 @@ function filter(category) {
 		</div>
 	</div>
 </section>
-<div class="filter">
+<!-- <div class="filter">
 	<button on:click={() => filter('categorySelection', "7-String")}>
 		7-String
 	</button>
@@ -91,7 +91,7 @@ function filter(category) {
 	<button on:click={() => setContext('categorySelection', "Strings")}>
 		Strings
 	</button>
-</div>
+</div> -->
 
     <main>
 		{#if data.items}
@@ -102,7 +102,7 @@ function filter(category) {
 					<div class="arrow rightArrow"><h1>⇦</h1></div>
 					{#each data.items as item}
 						{#if item.category == itemCategory}
-						<a href="/items/{item.id}">
+						<a href="/items/{item.category}/{item.id}">
 							<div class="card">
 								<div class="image"><img src="{item.altImageUrl}" alt="Placeholder Image"></div>
 								<div class="caption">
