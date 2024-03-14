@@ -36,7 +36,7 @@
     {/if}
     <p>Item cost: ${totalCost.toFixed(2)}</p>
     <p>Tax: ${addedTax.toFixed(2)}</p>
-    <p>Total: ${(totalCost + addedTax).toFixed(2)}</p>
+    <p>Total: ${totalCost + addedTax}</p>
     <button on:click={clearCart}><h3>Complete Purchase</h3></button>
   </ul>
   <style>
