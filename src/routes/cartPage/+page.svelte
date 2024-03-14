@@ -3,9 +3,11 @@
     import {goto} from '$app/navigation';
     let totalCost = 0;
     $: {
-        totalCost = $cart.reduce((acc, item) => acc + item.price, 0);
+        totalCost = $cart.reduce((total, item) => total + item.price, 0);
     }
     $: itemNumbers = $cart.length;
+
+    $: addedTax = totalCost * .07;
 
     function clearCart() {
       // console.log("clearing cart");
@@ -32,7 +34,9 @@
     {:else}
       <p>No items in your cart!</p>
     {/if}
-    <p>Total Cost: ${totalCost.toFixed(2)}</p>
+    <p>Item cost: ${totalCost.toFixed(2)}</p>
+    <p>Tax: ${addedTax.toFixed(2)}</p>
+    <p>Total: ${totalCost + addedTax}</p>
     <button on:click={clearCart}><h3>Complete Purchase</h3></button>
   </ul>
   <style>
