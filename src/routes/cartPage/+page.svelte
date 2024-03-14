@@ -9,6 +9,8 @@
 
     $: addedTax = totalCost * .07;
 
+    $: totalTotal = totalCost + addedTax;
+
     function clearCart() {
       // console.log("clearing cart");
       $cart = [];
@@ -36,7 +38,7 @@
     {/if}
     <p>Item cost: ${totalCost.toFixed(2)}</p>
     <p>Tax: ${addedTax.toFixed(2)}</p>
-    <p>Total: ${totalCost + addedTax}</p>
+    <p>Total: ${totalTotal.toFixed(2)}</p>
     <button on:click={clearCart}><h3>Complete Purchase</h3></button>
   </ul>
   <style>
