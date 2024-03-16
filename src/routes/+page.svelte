@@ -1,51 +1,9 @@
 <script>
-	// import Counter from './Counter.svelte';
-	// import welcome from '$lib/images/svelte-welcome.webp';
-	// import welcome_fallback from '$lib/images/svelte-welcome.png';
-	// import Carousel from './Carousel.svelte';
-	// import Card from './Card.svelte';
-	// import Filter from './Filter.svelte';
-	// const pageTitle = document.title;
 	export let data;
 	// let items = [];
 
 
 let categories = ["7-String", "8-String", "Amp", "Pre-Amp", "Cable", "Strings"];
-// $:{
-// 	console.log(data)
-// }
-
-// const paintAreas = document.querySelectorAll(".paintSplash");
-// paintAreas.forEach((paintArea) =>{
-// 	for (let i = 0; i < 10; i++) {
-// 		let div = createElement("div");
-// }
-// });
-
-// function filter(category) {
-//       filteredProducts = data.filter(product => product.category === category);
-//     }
-  
-//     function updateCategory(name, description) {
-//       let dbCategoryName = "";
-//       switch (name) {
-//         case "The Classics":
-//           dbCategoryName = "classic";
-//           break;
-//         case "Rise & Shine":
-//           dbCategoryName = "riseandshine";
-//           break;
-//         case "H*t T*pic":
-//           dbCategoryName = "hottopic";
-//           break;
-//         default:
-//           dbCategoryName = "classic"; // Default category
-//       }
-  
-//       catname = name;
-//       catdescription = description;
-//       filter(dbCategoryName);
-//     }
 
 </script>
 
@@ -70,26 +28,6 @@ let categories = ["7-String", "8-String", "Amp", "Pre-Amp", "Cable", "Strings"];
 		</div>
 	</div>
 </section>
-<!-- <div class="filter">
-	<button on:click={() => filter('categorySelection', "7-String")}>
-		7-String
-	</button>
-	<button on:click={() => setContext('categorySelection', "8-String")}>
-		8-String
-	</button>
-	<button on:click={() => setContext('categorySelection', "Amp")}>
-		Amp
-	</button>
-	<button on:click={() => setContext('categorySelection', "Pre-Amp")}>
-		Pre-Amp
-	</button>
-	<button on:click={() => setContext('categorySelection', "Cable")}>
-		Cable
-	</button>
-	<button on:click={() => setContext('categorySelection', "Strings")}>
-		Strings
-	</button>
-</div> -->
 
     <main>
 		{#if data.items}
@@ -115,10 +53,6 @@ let categories = ["7-String", "8-String", "Amp", "Pre-Amp", "Cable", "Strings"];
 				<p>No items found!</p>
 			{/if}
 
-		<!-- <div class="tempReel">
-			<Card />
-		</div> -->
-		<!-- <Carousel /> -->
     </main>
 
 

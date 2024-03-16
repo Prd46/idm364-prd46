@@ -36,6 +36,7 @@
 
 
     // console.log(data.item); //DATA IS GETTING HERE, but cannot get the information from it.
+    //THERE ARE TWO SLUG FOLDERS TO ADD THE ITEM TYPE IN THE URL FOR SEO
   </script>
   <svelte:head>
     <title>{data.item.name}</title>

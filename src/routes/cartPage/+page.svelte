@@ -12,10 +12,18 @@
     $: totalTotal = totalCost + addedTax;
 
     $: confirmation = false;
+
+    $: checkedOut = false;
+
+    $: number = 0;
+
     function clearCart() {
       // console.log("clearing cart");
       confirmation = false;
+      checkedOut = true;
       $cart = [];
+      number = Math.floor(Math.random() * 10000000000);
+      return number
     }
     function toggleConfirm(){
       if (confirmation == false){
@@ -36,21 +44,23 @@
     {#each $cart as item}
     <div class="itemListing">
       <div class="cartImage"><img src="{item.image}" alt="Placeholder Image"></div>
-      <div><h4>{item.name}</h4></div>
-      <div><h4>${item.price}.00</h4></div>
+      <div class="textDiv">
+        <div><h4>{item.name}</h4></div>
+        <div><h4>${item.price}.00</h4></div>
+      </div>
       <button on:click={() => cart.update(items => items.filter(i => i !== item))}><div class="xButton"><h3 class="x">X</h3></div></button>
     </div>
       
     {/each}
-    <p>Item cost: ${totalCost.toFixed(2)}</p>
-    <p>Tax: ${addedTax.toFixed(2)}</p>
-    <p>Total: ${totalTotal.toFixed(2)}</p>
-    <button on:click={toggleConfirm}><h3>Complete Purchase</h3></button>
-    {:else}
-      <p>No items in your cart!</p>
-    {/if}
-    {#if confirmation == true}
+    <div class="prices">
       <div>
+        <p>Item cost: ${totalCost.toFixed(2)}</p>
+        <p>Tax: ${addedTax.toFixed(2)}</p>
+        <p>Total: ${totalTotal.toFixed(2)}</p>
+        <button on:click={toggleConfirm}><h3>Complete Purchase</h3></button>
+      </div>
+      {#if confirmation == true}
+      <div class="confirmation">
         <p>Are you sure you'd like to confirm your purchase?</p>
         <div>
           <button on:click={toggleConfirm}><h3 class="no">No</h3></button>
@@ -58,28 +68,65 @@
         </div>
       </div>
     {/if}
+    </div>
+    {:else}
+      <p>No items in your cart!</p>
+      {#if checkedOut == true}
+      <h3>Order complete! Your confirmation number is {number}</h3>
+      {/if}
+    {/if}
+    
   </ul>
   <style>
     h3, p{
       color: white;
-    }
-    h4{
-      color: black;
-    }
-    .no{
-      padding-right: 1rem;
     }
     .itemListing{
       background-color: white;
       border-radius: var(--brsmall);
       margin-bottom: 1rem;
       display: flex;
-      justify-content: center;
+
+      justify-content: space-between;
       align-items: center;
       height: 8rem;
+      padding: 0 5%;
     }
+    .prices{
+      border: solid 2px var(--dimFill);
+      padding: 1rem;
+      border-radius: var(--brsmall);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .confirmation{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h4{
+      color: black;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    .textDiv{
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .no{
+      padding-right: 1rem;
+    }
+
     .itemListing div{
-      margin: 0 1rem;
+      margin-right: 0 1rem;
+      margin-left: .5rem;
     }
     .cartImage{
       height: 100%;
@@ -106,13 +153,5 @@
       border-radius: 16px;
       border: solid 2px rgb(255, 255, 255);
     }
-
-    .addButton{
-
-        }
-        .addBorder{
-
-        }
-
     
   </style>
