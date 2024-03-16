@@ -47,8 +47,6 @@ let categories = ["7-String", "8-String", "Amp", "Pre-Amp", "Cable", "Strings"];
 //       filter(dbCategoryName);
 //     }
 
-
-
 </script>
 
 <svelte:head>
@@ -98,8 +96,6 @@ let categories = ["7-String", "8-String", "Amp", "Pre-Amp", "Cable", "Strings"];
 		{#each categories as itemCategory}
 			<h2>{itemCategory}<div class="angulate"></div></h2>
 				<section class="carousel">
-					<div class="arrow leftArrow"><h1>⇦</h1></div>
-					<div class="arrow rightArrow"><h1>⇦</h1></div>
 					{#each data.items as item}
 						{#if item.category == itemCategory}
 						<a href="/items/{item.category}/{item.id}">
@@ -135,6 +131,9 @@ let categories = ["7-String", "8-String", "Amp", "Pre-Amp", "Cable", "Strings"];
 	h2{
 		background-color: white;
 		width: 20rem;
+		height: 3.3rem;
+		display: flex;
+		align-items: center;
 		padding: .5rem 1rem;
 		border-radius: 10px;
 		display: flex;
@@ -155,6 +154,7 @@ let categories = ["7-String", "8-String", "Amp", "Pre-Amp", "Cable", "Strings"];
 	}
 	.c{
 		text-align: center;
+		padding: 1rem 0;
 	}
 	section{
 		display: flex;
@@ -199,41 +199,4 @@ img{
 	-moz-hyphens: auto;
 	hyphens: auto;
 }
-.arrow{
-	background-color: rgba(173, 216, 230, 0.447);
-	height: 20rem;
-	width: 4rem;
-	position: absolute;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	align-content: center;
-	justify-items: center;
-	padding-left: 4rem;
-	opacity: 10%;
-	transition: all .3s ease-out;
-}
-.arrow:hover{
-	cursor: pointer;
-	opacity: 100%;
-}
-.rightArrow{
-	right: 3rem;
-	transform: rotate(180deg);
-}
-.leftArrow{
-	left: 4.5rem;
-}
-
-button{
-        padding: 0 .25rem;
-        border-radius: 5rem;
-        width: 8rem;
-        background-color: aliceblue;
-        margin: .5rem;
-        text-align: center;
-        padding: 1rem;
-        font-size: 1.25rem;
-        font-family: var(--ptext);
-    }
 </style>

@@ -35,8 +35,13 @@
   }
 
 
-    console.log(data.item); //DATA IS GETTING HERE, but cannot get the information from it.
+    // console.log(data.item); //DATA IS GETTING HERE, but cannot get the information from it.
   </script>
+  <svelte:head>
+    <title>{data.item.name}</title>
+    <meta name="description" content="Stringking" />
+  </svelte:head>
+
   		{#if data.item}
       <div class="cardContainer">
         <div class="card">
@@ -100,6 +105,12 @@
         .cardButtons{
           display: flex;
           justify-content: flex-end;
+        }
+
+        @media screen and (max-width: 800px){
+          .card{
+            width: 100%;
+          }
         }
         
         </style>
